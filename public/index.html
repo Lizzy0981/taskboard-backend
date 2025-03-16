@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API de Gestión de Tableros</title>
+  <!-- Tailwind CDN para estilos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons para íconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Configuración de Tailwind
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+          },
+          animation: {
+            'bounce': 'bounce 1s infinite',
+            'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+        }
+      }
+    }
+    
+    // Función para alternar modo oscuro
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('darkMode', isDark ? 'dark' : 'light');
+      updateDarkModeIcon();
+    }
+    
+    // Función para actualizar el ícono según el modo
+    function updateDarkModeIcon() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const darkModeIcon = document.getElementById('darkModeIcon');
+      if (isDark) {
+        darkModeIcon.setAttribute('name', 'sun');
+      } else {
+        darkModeIcon.setAttribute('name', 'moon');
+      }
+    }
+    
+    // Inicializar tema según preferencia guardada
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('darkMode');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+      updateDarkModeIcon();
+      
+      // Inicializar Lucide icons
+      lucide.createIcons();
+    });
+  </script>
+  <style>
+    /* Estilos personalizados */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+    
+    .animate-bounce {
+      animation: bounce 1s infinite;
+    }
+    
+    .animation-delay-100 {
+      animation-delay: 0.1s;
+    }
+    
+    .animation-delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    /* Añadir efecto gradiente para el texto */
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(to right, #0ea5e9, #0284c7, #0ea5e9);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white dark:bg-gray-800 shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400">
+        TaskBoard API
+      </h1>
+      
+      <button
+        onclick="toggleDarkMode()"
+        class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+        aria-label="Toggle Dark Mode"
+      >
+        <i id="darkModeIcon" data-lucide="moon" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          Documentación de la API
+        </h2>
+        
+        <div class="mb-8">
+          <p class="mb-4 text-gray-700 dark:text-gray-300">
+            Bienvenido a la API de TaskBoard, un sistema de gestión de tableros estilo Trello.
+            Esta API permite la creación y gestión de tableros, listas y tareas.
+          </p>
+          
+          <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Características principales:</h3>
+          <ul class="list-disc pl-5 mb-4 text-gray-700 dark:text-gray-300">
+            <li>Autenticación de usuarios</li>
+            <li>Gestión de tableros</li>
+            <li>Gestión de listas</li>
+            <li>Gestión de tareas</li>
+            <li>Sistema de roles y permisos</li>
+          </ul>
+        </div>
+        
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Rutas principales:</h3>
+        
+        <!-- Authentication Routes -->
+        <div class="mb-6">
+          <h4 class="font-medium text-primary-600 dark:text-primary-400 mb-2">Autenticación</h4>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-md p-3">
+            <div class="mb-2">
+              <span class="inline-block bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300 px-2 py-1 rounded text-xs mr-2">POST</span>
+              <code class="text-sm">/api/auth/register</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Registrar un nuevo usuario</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300 px-2 py-1 rounded text-xs mr-2">POST</span>
+              <code class="text-sm">/api/auth/login</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Iniciar sesión</p>
+            </div>
+            <div>
+              <span class="inline-block bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded text-xs mr-2">GET</span>
+              <code class="text-sm">/api/auth/me</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Obtener información del usuario actual</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Board Routes -->
+        <div class="mb-6">
+          <h4 class="font-medium text-primary-600 dark:text-primary-400 mb-2">Tableros</h4>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-md p-3">
+            <div class="mb-2">
+              <span class="inline-block bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300 px-2 py-1 rounded text-xs mr-2">POST</span>
+              <code class="text-sm">/api/boards</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Crear un nuevo tablero</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded text-xs mr-2">GET</span>
+              <code class="text-sm">/api/boards</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Obtener todos los tableros del usuario</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded text-xs mr-2">GET</span>
+              <code class="text-sm">/api/boards/:boardId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Obtener un tablero específico</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 px-2 py-1 rounded text-xs mr-2">PUT</span>
+              <code class="text-sm">/api/boards/:boardId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Actualizar un tablero</p>
+            </div>
+            <div>
+              <span class="inline-block bg-red-200 text-red-800 dark:bg-red-900 dark:text-red-300 px-2 py-1 rounded text-xs mr-2">DELETE</span>
+              <code class="text-sm">/api/boards/:boardId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Eliminar un tablero</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Lists Routes -->
+        <div class="mb-6">
+          <h4 class="font-medium text-primary-600 dark:text-primary-400 mb-2">Listas</h4>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-md p-3">
+            <div class="mb-2">
+              <span class="inline-block bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300 px-2 py-1 rounded text-xs mr-2">POST</span>
+              <code class="text-sm">/api/lists/board/:boardId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Crear una nueva lista</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded text-xs mr-2">GET</span>
+              <code class="text-sm">/api/lists/board/:boardId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Obtener todas las listas de un tablero</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 px-2 py-1 rounded text-xs mr-2">PUT</span>
+              <code class="text-sm">/api/lists/:listId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Actualizar una lista</p>
+            </div>
+            <div>
+              <span class="inline-block bg-red-200 text-red-800 dark:bg-red-900 dark:text-red-300 px-2 py-1 rounded text-xs mr-2">DELETE</span>
+              <code class="text-sm">/api/lists/:listId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Eliminar una lista</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tasks Routes -->
+        <div>
+          <h4 class="font-medium text-primary-600 dark:text-primary-400 mb-2">Tareas</h4>
+          <div class="bg-gray-50 dark:bg-gray-700 rounded-md p-3">
+            <div class="mb-2">
+              <span class="inline-block bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-300 px-2 py-1 rounded text-xs mr-2">POST</span>
+              <code class="text-sm">/api/tasks/list/:listId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Crear una nueva tarea</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded text-xs mr-2">GET</span>
+              <code class="text-sm">/api/tasks/list/:listId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Obtener todas las tareas de una lista</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-blue-200 text-blue-800 dark:bg-blue-900 dark:text-blue-300 px-2 py-1 rounded text-xs mr-2">GET</span>
+              <code class="text-sm">/api/tasks/:taskId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Obtener una tarea específica</p>
+            </div>
+            <div class="mb-2">
+              <span class="inline-block bg-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 px-2 py-1 rounded text-xs mr-2">PUT</span>
+              <code class="text-sm">/api/tasks/:taskId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Actualizar una tarea</p>
+            </div>
+            <div>
+              <span class="inline-block bg-red-200 text-red-800 dark:bg-red-900 dark:text-red-300 px-2 py-1 rounded text-xs mr-2">DELETE</span>
+              <code class="text-sm">/api/tasks/:taskId</code>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Eliminar una tarea</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="py-8 pb-6 text-center border-t border-gray-200 dark:border-gray-700">
+    <div class="flex flex-col items-center gap-4">
+      <h2 class="text-2xl font-bold text-gradient animate-pulse hover:animate-none hover:scale-105 transform transition-all duration-300">
+        Elizabeth Diaz Familia
+      </h2>
+      
+      <div class="flex gap-6">
+        <a 
+          href="https://github.com/Lizzy0981" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="transform transition-all duration-300 hover:scale-125 group"
+        >
+          <i 
+            data-lucide="github" 
+            class="h-6 w-6 text-gray-700 dark:text-white group-hover:text-primary-500 animate-bounce hover:animate-none hover:rotate-12 transition-all duration-300"
+          ></i>
+        </a>
+        
+        <a 
+          href="https://linkedin.com/in/eli-familia" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="transform transition-all duration-300 hover:scale-125 group"
+        >
+          <i 
+            data-lucide="linkedin" 
+            class="h-6 w-6 text-gray-700 dark:text-white group-hover:text-primary-500 animate-bounce hover:animate-none hover:-rotate-12 transition-all duration-300 animation-delay-100"
+          ></i>
+        </a>
+        
+        <a 
+          href="https://twitter.com/Lizzyfamilia" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="transform transition-all duration-300 hover:scale-125 group"
+        >
+          <i 
+            data-lucide="twitter" 
+            class="h-6 w-6 text-gray-700 dark:text-white group-hover:text-primary-500 animate-bounce hover:animate-none hover:rotate-12 transition-all duration-300 animation-delay-200"
+          ></i>
+        </a>
+      </div>
+      
+      <div class="text-sm mt-2 font-medium text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors duration-300 flex flex-col items-center gap-1">
+        <p>TaskBoard - Sistema de Gestión de Tableros</p>
+        <p class="text-xs opacity-75">© <span id="currentYear">2025</span> | Made with 💜</p>
+        <script>
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+        </script>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
