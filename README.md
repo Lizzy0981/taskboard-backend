@@ -5,10 +5,12 @@ Un potente backend para la gestión de tableros colaborativos tipo Trello, con s
 ## 📱 Imágenes de la API 📱
 
 ### Modo Claro
-![TaskBoard API - Modo Claro](screenshots/taskboard-light.png)
+![TaskBoard API - Modo Claro]![Captura de pantalla_12-3-2025_164015_localhost](https://github.com/user-attachments/assets/e6168cb3-7476-4692-9e1b-938ba0f2f22b)
+
 
 ### Modo Oscuro
-![TaskBoard API - Modo Oscuro](screenshots/taskboard-dark.png)
+![TaskBoard API - Modo Oscuro]![Captura de pantalla_12-3-2025_164034_localhost](https://github.com/user-attachments/assets/abda3524-973d-4d70-9519-ff42d6a286fa)
+
 
 *Capturas de pantalla de la documentación interactiva de la API de TaskBoard, mostrando la interfaz de endpoints en ambos modos.*
 
