@@ -54,6 +54,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 1 -->
+![paso 1](https://github.com/user-attachments/assets/91630aa9-854e-402e-8dd9-19f96f2910f6)
 
 ---
 
@@ -78,6 +79,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 2 -->
+![paso 2](https://github.com/user-attachments/assets/1a29aa2f-c461-45ec-87aa-1324239235b1)
 
 ---
 
@@ -100,6 +102,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 3 -->
+![paso 3](https://github.com/user-attachments/assets/4ce64ac2-438d-4354-8a65-8f131f704195)
 
 ---
 
@@ -115,6 +118,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 4 -->
+![paso 4](https://github.com/user-attachments/assets/44497f76-20e7-437d-b261-339a82841194)
 
 ---
 
@@ -131,6 +135,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 5 -->
+![paso 5](https://github.com/user-attachments/assets/8b0ae4b2-184c-4653-b144-d5507b71ebff)
 
 ---
 
@@ -153,6 +158,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 6 -->
+![paso 6](https://github.com/user-attachments/assets/3ade222f-6188-4819-a666-76bd2c643714)
 
 ---
 
@@ -168,6 +174,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 7 -->
+![paso 7](https://github.com/user-attachments/assets/efc45cb6-a456-4e31-a467-05216c5dd016)
 
 ---
 
@@ -190,6 +197,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 8 -->
+![paso 8](https://github.com/user-attachments/assets/34583d6e-fd12-4fef-b246-afd80dd57834)
 
 ---
 
@@ -205,6 +213,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 9 -->
+![paso 9](https://github.com/user-attachments/assets/e6722e89-0d75-46ea-819f-ef549094fac4)
 
 ---
 
@@ -230,6 +239,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 10 -->
+![paso 10](https://github.com/user-attachments/assets/78fb3364-4577-4bf2-af89-e22ef5ab7af1)
 
 ---
 
@@ -245,6 +255,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 11 -->
+![paso 11](https://github.com/user-attachments/assets/fcda2c59-5998-4239-945f-aa3466263855)
 
 ---
 
@@ -270,6 +281,7 @@ Este documento detalla los pasos para verificar el correcto funcionamiento del b
 
 ### Captura de pantalla:
 <!-- Inserta aquí la imagen del Paso 12 -->
+![paso 12](https://github.com/user-attachments/assets/539fa8c0-4f11-4350-a777-fa8e1f7a95ff)
 
 ---
 
