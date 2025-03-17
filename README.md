@@ -69,6 +69,16 @@ Edita el archivo `.env` con tus credenciales de base de datos y secreto JWT.
 npm run dev
 ```
 
+## 🚀 Despliegue
+
+Este proyecto está desplegado en Railway y puede accederse en:
+[https://taskboard-api.up.railway.app](https://taskboard-api.up.railway.app)
+
+Para probar la API, puedes:
+1. Usar la documentación interactiva disponible en la URL del despliegue
+2. Seguir los pasos detallados en [TESTING.md](TESTING.md), reemplazando `http://localhost:5000` con la URL del despliegue
+
+
 ## 🧪 Pruebas y verificación
 
 Para verificar el correcto funcionamiento de la API, se ha creado una documentación detallada con los pasos para probar todos los endpoints principales usando Postman.
